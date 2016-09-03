@@ -24,7 +24,7 @@
     <application
         android:allowBackup="true"
         android:name="com.project.wei.tastyrecipes.app.AppApplication"
-        android:icon="@mipmap/c2"
+        android:icon="@drawable/cover"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
