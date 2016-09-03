@@ -16,7 +16,6 @@ import com.project.wei.tastyrecipes.utils.SharedPrefUtil;
 
 public class SplashActivity extends Activity {
 
-    private ImageView iv_splash_welcome;
     private RelativeLayout rv_splash;
 
     @Override
@@ -24,7 +23,6 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        iv_splash_welcome = (ImageView) findViewById(R.id.iv_splash_welcome);
         rv_splash = (RelativeLayout) findViewById(R.id.rv_splash);
         // 旋转动画
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f,
@@ -46,8 +44,8 @@ public class SplashActivity extends Activity {
         animationSet.addAnimation(scaleAnimation);
         animationSet.addAnimation(alphaAnimation);
         // 启动动画  iv_splash_welcome 这张图片产生动画效果
-        iv_splash_welcome.startAnimation(animationSet);
-//        rv_splash.startAnimation(animationSet);//整个布局产生动画效果
+        //iv_splash_welcome.startAnimation(animationSet);
+        rv_splash.startAnimation(animationSet);//整个布局产生动画效果
 
         animationSet.setAnimationListener(new Animation.AnimationListener() {
             @Override
