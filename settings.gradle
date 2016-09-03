@@ -1,1 +1,1 @@
-include ':app', ':ViewPagerIndicatorLibrary', ':TastyRecipes', ':SlidingMenuLibrary', ':TopNewGrid'
+include ':ViewPagerIndicatorLibrary', ':TastyRecipes', ':SlidingMenuLibrary'

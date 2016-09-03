@@ -11,9 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/SlidingMenuLibrary" />
             <option value="$PROJECT_DIR$/TastyRecipes" />
-            <option value="$PROJECT_DIR$/TopNewGrid" />
             <option value="$PROJECT_DIR$/ViewPagerIndicatorLibrary" />
-            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
         <option name="myModules">
@@ -21,9 +19,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/SlidingMenuLibrary" />
             <option value="$PROJECT_DIR$/TastyRecipes" />
-            <option value="$PROJECT_DIR$/TopNewGrid" />
             <option value="$PROJECT_DIR$/ViewPagerIndicatorLibrary" />
-            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
