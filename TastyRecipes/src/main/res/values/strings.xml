@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">菜谱</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="drawer_btn_rss">频道管理</string>
+    <string name="subscribe_my_category">我的菜谱</string>
+    <string name="subscribe_more_category">更多菜谱</string>
+    <string name="subscribe_manager_category_info">单击增删菜谱</string>
+    <string name="subscribe_manager_category_info_2">单击增删菜谱，长按拖拽排序</string>
+</resources>

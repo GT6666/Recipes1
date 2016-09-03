@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.project.wei.tastyrecipes.view.NoScrollViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </com.project.wei.tastyrecipes.view.NoScrollViewPager>
+
+    <RadioGroup
+        android:id="@+id/rg_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_tab_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <RadioButton
+            style="@style/Bottom_Tab_Style"
+            android:id="@+id/rb_classify"
+            android:text="分类"
+            android:drawableTop="@drawable/tab_home_selector"
+            android:checked="true"/>
+        <RadioButton
+            style="@style/Bottom_Tab_Style"
+            android:id="@+id/rb_cooking"
+            android:text="做法"
+            android:drawableTop="@drawable/tab_news_selector" />
+        <RadioButton
+            style="@style/Bottom_Tab_Style"
+            android:id="@+id/rb_setting"
+            android:text="设置"
+            android:drawableTop="@drawable/tab_smart_selector" />
+
+    </RadioGroup>
+
+</LinearLayout>
