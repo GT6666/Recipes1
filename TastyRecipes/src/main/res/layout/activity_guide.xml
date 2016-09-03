@@ -13,14 +13,16 @@
 
     <Button
         android:id="@+id/btn_guide_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:text="欢迎进入"
+        android:layout_marginBottom="80dp"
+        android:text="开启美食之旅"
         android:textSize="20sp"
         android:padding="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/text_guide_selector"
         android:background="@drawable/btn_guide_selector"
         android:visibility="gone"/>
@@ -30,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="30dp">
 
         <LinearLayout
             android:id="@+id/ll_container"
@@ -40,10 +42,10 @@
             >
         </LinearLayout>
         <ImageView
-            android:id="@+id/iv_red_point"
+            android:id="@+id/iv_orange_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/shape_point_red"/>
+            android:src="@drawable/shape_point_orange"/>
 
     </RelativeLayout>
 </RelativeLayout>
