@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--myPager里的ListView里的Item设置-->
+<!--minHeight用来设置每一个Item的高度-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="60dp"
+        >
+        <ImageView
+            android:id="@+id/iv_listitemnews_icon"
+            android:padding="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            />
+        <TextView
+            android:id="@+id/tv_listitemnews_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000"
+            android:layout_alignParentTop="true"
+            android:textSize="16sp"
+            android:layout_toRightOf="@id/iv_listitemnews_icon"
+            android:ellipsize="end"
+            android:text="测试"
+            />
+    </LinearLayout>
+
+

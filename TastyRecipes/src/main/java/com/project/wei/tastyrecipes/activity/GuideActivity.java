@@ -24,8 +24,8 @@ import java.util.ArrayList;
 public class GuideActivity extends Activity {
 
     private ViewPager vp_guide;
-    private int [] mImageIds = new int[]{R.drawable.guide1,
-            R.drawable.guide2,R.drawable.guide3,R.drawable.guide};
+    private int[] mImageIds = new int[]{R.drawable.guide1,
+            R.drawable.guide2, R.drawable.guide3, R.drawable.guide};
     private ArrayList<ImageView> mImageViewList;
     private LinearLayout ll_container;
     private ImageView iv_orange_point;
@@ -56,8 +56,8 @@ public class GuideActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //点击开始后，下次打开这个应用就不需要重新进入引导界面了，把它改为false
-                SharedPrefUtil.setBoolean(getApplicationContext(),"is_first_enter",false);
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                SharedPrefUtil.setBoolean(getApplicationContext(), "is_first_enter", false);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
         });
@@ -76,12 +76,12 @@ public class GuideActivity extends Activity {
             ImageView grayPoint = new ImageView(getApplicationContext());
             grayPoint.setImageResource(R.drawable.shape_point_grey);
             //初始化布局参数, 宽高包裹内容,父控件是谁,就是谁声明的布局参数，给三个小圆点设置间距
-            LinearLayout.LayoutParams params =new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
             // 从第二个点开始设置左边距
             if (i > 0) {
-                params.leftMargin = DensityUtils.dip2px(20,this);//屏幕适配，dp转px
+                params.leftMargin = DensityUtils.dip2px(20, this);//屏幕适配，dp转px
             }
             grayPoint.setLayoutParams(params);// 设置布局参数
             ll_container.addView(grayPoint);// 给容器添加圆点
@@ -104,7 +104,7 @@ public class GuideActivity extends Activity {
                 ll_container.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 //获得两个圆点之间的距离，是圆心之间的距离的长度
                 distance = ll_container.getChildAt(1).getLeft() - ll_container.getChildAt(0).getLeft();
-                Log.i("tag",distance+"");
+                Log.i("tag", distance + "");
             }
         });
     }
@@ -121,6 +121,7 @@ public class GuideActivity extends Activity {
                 layoutParams.leftMargin = (int) leftMargin;// 修改左边距
                 iv_orange_point.setLayoutParams(layoutParams);// 重新设置布局参数
             }
+
             // 某个页面被选中，回调这个方法
             @Override
             public void onPageSelected(int position) {
@@ -131,6 +132,7 @@ public class GuideActivity extends Activity {
                     btn_guide_welcome.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
                 // 页面状态发生变化的回调
@@ -138,12 +140,13 @@ public class GuideActivity extends Activity {
         });
     }
 
-    class GuideAdapter extends PagerAdapter{
+    class GuideAdapter extends PagerAdapter {
         // item的个数
         @Override
         public int getCount() {
             return mImageViewList.size();
         }
+
         // 初始化item布局
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
@@ -157,6 +160,7 @@ public class GuideActivity extends Activity {
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
         }
+
         // 销毁item
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
