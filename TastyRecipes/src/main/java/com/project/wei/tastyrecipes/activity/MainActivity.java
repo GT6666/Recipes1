@@ -3,7 +3,6 @@ package com.project.wei.tastyrecipes.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.Window;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -57,19 +56,6 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setBehindOffset(0);
         //初始化fragment
         initFragment();
-    }
-
-    @Override
-    protected void onResume() {
-        channelItem = getIntent().getParcelableExtra("channelItem");
-        if (channelItem != null) {
-            for (int i = 0; i < channelItem.size(); i++) {
-                String s = channelItem.get(i).toString();
-                Log.i("mmmmmmmmmmmmmmmmm",s);
-            }
-        }
-        Log.i("mmmmmmmmmmmmmmmmm","mmmmmmmmmmmmmmmmmmmmmmmm");
-        super.onResume();
     }
 
     public void initFragment() {
