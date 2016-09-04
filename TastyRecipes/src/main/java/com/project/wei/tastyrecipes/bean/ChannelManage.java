@@ -28,16 +28,16 @@ public class ChannelManage {
 		defaultOtherChannels = new ArrayList<ChannelItem>();
 		defaultUserChannels.add(new ChannelItem(1, "菜式菜品", 1, 1));
 		defaultUserChannels.add(new ChannelItem(2, "菜系", 2, 1));
-		defaultUserChannels.add(new ChannelItem(3, "主食", 3, 1));
-		defaultUserChannels.add(new ChannelItem(4, "西点", 4, 1));
-		defaultUserChannels.add(new ChannelItem(5, "汤羹饮品", 5, 1));
-		defaultUserChannels.add(new ChannelItem(6, "菜肴", 6, 1));
-		defaultUserChannels.add(new ChannelItem(7, "功效", 7, 1));
-		defaultUserChannels.add(new ChannelItem(8, "工艺口味", 8, 1));
-		defaultUserChannels.add(new ChannelItem(9, "时令食材", 9, 1));
-		defaultUserChannels.add(new ChannelItem(10, "场景", 10, 1));
-		defaultUserChannels.add(new ChannelItem(11, "人群", 11, 1));
-		defaultUserChannels.add(new ChannelItem(12, "其他菜品", 12, 1));
+		defaultUserChannels.add(new ChannelItem(3, "时令食材", 3, 1));
+		defaultUserChannels.add(new ChannelItem(4, "功效", 4, 1));
+		defaultUserChannels.add(new ChannelItem(5, "场景", 5, 1));
+		defaultUserChannels.add(new ChannelItem(6, "工艺口味", 6, 1));
+		defaultUserChannels.add(new ChannelItem(7, "菜肴", 7, 1));
+		defaultUserChannels.add(new ChannelItem(8, "主食", 8, 1));
+		defaultUserChannels.add(new ChannelItem(9, "西点", 9, 1));
+		defaultUserChannels.add(new ChannelItem(10, "汤羹饮品", 10, 1));
+		defaultUserChannels.add(new ChannelItem(11, "其他菜品", 11, 1));
+		defaultUserChannels.add(new ChannelItem(12, "人群", 12, 1));
 
 		defaultOtherChannels.add(new ChannelItem(13, "疾病", 1, 0));
 		defaultOtherChannels.add(new ChannelItem(14, "畜肉类", 2, 0));
@@ -45,16 +45,16 @@ public class ChannelManage {
 		defaultOtherChannels.add(new ChannelItem(16, "水产类", 4, 0));
 		defaultOtherChannels.add(new ChannelItem(17, "蔬菜类", 5, 0));
 		defaultOtherChannels.add(new ChannelItem(18, "水果类", 6, 0));
-		defaultOtherChannels.add(new ChannelItem(19, "日常", 7, 0));
-		defaultOtherChannels.add(new ChannelItem(20, "节日", 8, 0));
-		defaultOtherChannels.add(new ChannelItem(21, "节气", 9, 0));
-		defaultOtherChannels.add(new ChannelItem(22, "基本工艺", 10, 0));
-		defaultOtherChannels.add(new ChannelItem(23, "其他工艺", 11, 0));
-		defaultOtherChannels.add(new ChannelItem(24, "基本口味", 12, 0));
-		defaultOtherChannels.add(new ChannelItem(25, "多元口味", 13, 0));
-		defaultOtherChannels.add(new ChannelItem(26, "水果味", 14, 0));
-		defaultOtherChannels.add(new ChannelItem(27, "调味料", 15, 0));
-		defaultOtherChannels.add(new ChannelItem(28, "米面豆乳类", 16, 0));
+		defaultOtherChannels.add(new ChannelItem(19, "米面豆乳类", 7, 0));
+		defaultOtherChannels.add(new ChannelItem(20, "日常", 8, 0));
+		defaultOtherChannels.add(new ChannelItem(21, "节日", 9, 0));
+		defaultOtherChannels.add(new ChannelItem(22, "节气", 10, 0));
+		defaultOtherChannels.add(new ChannelItem(23, "基本工艺", 11, 0));
+		defaultOtherChannels.add(new ChannelItem(24, "其他工艺", 12, 0));
+		defaultOtherChannels.add(new ChannelItem(25, "基本口味", 13, 0));
+		defaultOtherChannels.add(new ChannelItem(26, "多元口味", 14, 0));
+		defaultOtherChannels.add(new ChannelItem(27, "水果味", 15, 0));
+		defaultOtherChannels.add(new ChannelItem(28, "调味料", 16, 0));
 	}
 
 	private ChannelManage(SQLHelper paramDBHelper) throws SQLException {

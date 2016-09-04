@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +57,8 @@ public class ChannelActivity extends Activity implements OnItemClickListener {
 	boolean isMove = false;
 
 	private ChannelDao channelDao;
+	private ArrayList<ChannelItem> userChannel;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,14 +68,15 @@ public class ChannelActivity extends Activity implements OnItemClickListener {
 		back.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ArrayList<ChannelItem> userChannel = (ArrayList<ChannelItem>) getUserChannel();
-				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-				intent.putExtra("channelItem",userChannel);
-				startActivity(intent);
+				saveChannel();
+				userChannel = getUserChannel();
+				Intent intent = new Intent(/*ChannelActivity.this, MainActivity.class*/);
+				intent.putExtra("channelItem", userChannel);
+				setResult(200,intent);
 
-				for (int i = 0; i < userChannel.size(); i++) {
+				/*for (int i = 0; i < userChannel.size(); i++) {
 					Log.i("channelactivity", userChannel.get(i).toString());
-				}
+				}*/
 				finish();
 			}
 		});
@@ -82,14 +85,14 @@ public class ChannelActivity extends Activity implements OnItemClickListener {
 	}
 
 
-	public List<ChannelItem> getUserChannel() {
+	public ArrayList<ChannelItem> getUserChannel() {
 		SQLHelper paramDBHelper = new SQLHelper(getApplicationContext());
 		channelDao = new ChannelDao(paramDBHelper.getContext());
 		Object cacheList = channelDao.listCache(SQLHelper.SELECTED + "= ?",new String[] { "1" });
 		if (cacheList != null && !((List) cacheList).isEmpty()) {
-			List<Map<String, String>> maplist = (List) cacheList;
+			ArrayList<Map<String, String>> maplist = (ArrayList) cacheList;
 			int count = maplist.size();
-			List<ChannelItem> list = new ArrayList<ChannelItem>();
+			ArrayList<ChannelItem> list = new ArrayList<ChannelItem>();
 			for (int i = 0; i < count; i++) {
 				ChannelItem navigate = new ChannelItem();
 				navigate.setId(Integer.valueOf(maplist.get(i).get(SQLHelper.ID)));
@@ -303,5 +306,17 @@ public class ChannelActivity extends Activity implements OnItemClickListener {
 	public void onBackPressed() {
 		saveChannel();
 		super.onBackPressed();
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == event.KEYCODE_BACK) {
+			ArrayList<ChannelItem> userChannel = getUserChannel();
+			Intent intent = new Intent();
+			intent.putExtra("channelItem",userChannel);
+			setResult(300,intent);
+			finish();
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

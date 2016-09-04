@@ -8,7 +8,7 @@ import android.os.Parcelable;
  *  */
   public class ChannelItem implements Parcelable{
 
-	private static final long serialVersionUID = -6465237897027410019L;
+//	private static final long serialVersionUID = -6465237897027410019L;
 
 	public int id;
 
