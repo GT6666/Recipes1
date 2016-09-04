@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:text="大裂式对"
-        android:drawableLeft="@drawable/shape_point_red"
+        android:drawableLeft="@drawable/shape_point_orange"
         android:textSize="18sp"
         android:textColor="#000"
         android:ellipsize="end"

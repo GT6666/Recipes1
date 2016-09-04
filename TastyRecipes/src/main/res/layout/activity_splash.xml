@@ -4,13 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rv_splash"
-    android:background="@drawable/splash_bg_newyear"
+    android:background="@drawable/splash"
     tools:context=".activity.SplashActivity">
 
-    <ImageView
-        android:id="@+id/iv_splash_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/splash_horse_newyear"
-        />
 </RelativeLayout>

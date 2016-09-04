@@ -24,11 +24,11 @@ import java.util.ArrayList;
 public class GuideActivity extends Activity {
 
     private ViewPager vp_guide;
-    private int [] mImageIds = new int[]{R.drawable.guide_1,
-            R.drawable.guide_2,R.drawable.guide_3};
+    private int [] mImageIds = new int[]{R.drawable.guide1,
+            R.drawable.guide2,R.drawable.guide3,R.drawable.guide};
     private ArrayList<ImageView> mImageViewList;
     private LinearLayout ll_container;
-    private ImageView iv_red_point;
+    private ImageView iv_orange_point;
     private int distance;
     private Button btn_guide_welcome;
 
@@ -42,7 +42,7 @@ public class GuideActivity extends Activity {
 
         vp_guide = (ViewPager) findViewById(R.id.vp_guide);
         ll_container = (LinearLayout) findViewById(R.id.ll_container);
-        iv_red_point = (ImageView) findViewById(R.id.iv_red_point);
+        iv_orange_point = (ImageView) findViewById(R.id.iv_orange_point);
         btn_guide_welcome = (Button) findViewById(R.id.btn_guide_welcome);
 
         initData();//初始化数据
@@ -117,9 +117,9 @@ public class GuideActivity extends Activity {
                 //在滚动的时候更新红色小圆点的位置
                 float leftMargin = distance * (positionOffset + position);//小红点当前的左边距
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
-                        iv_red_point.getLayoutParams();
+                        iv_orange_point.getLayoutParams();
                 layoutParams.leftMargin = (int) leftMargin;// 修改左边距
-                iv_red_point.setLayoutParams(layoutParams);// 重新设置布局参数
+                iv_orange_point.setLayoutParams(layoutParams);// 重新设置布局参数
             }
             // 某个页面被选中，回调这个方法
             @Override
