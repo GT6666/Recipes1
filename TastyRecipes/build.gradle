@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.3'
 
     defaultConfig {
-        applicationId "com.project.wei.zhbj"
+        applicationId "com.project.wei.tastyrecipes"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
