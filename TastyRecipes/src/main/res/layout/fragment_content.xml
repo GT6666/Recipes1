@@ -14,20 +14,21 @@
         android:id="@+id/rg_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottom_tab_bg"
+        android:background="#285"
         android:gravity="center"
         android:orientation="horizontal">
+        <RadioButton
+            style="@style/Bottom_Tab_Style"
+            android:id="@+id/rb_cooking"
+            android:text="首页"
+            android:drawableTop="@drawable/tab_news_selector"
+            android:checked="true"/>
         <RadioButton
             style="@style/Bottom_Tab_Style"
             android:id="@+id/rb_classify"
             android:text="分类"
             android:drawableTop="@drawable/tab_home_selector"
-            android:checked="true"/>
-        <RadioButton
-            style="@style/Bottom_Tab_Style"
-            android:id="@+id/rb_cooking"
-            android:text="做法"
-            android:drawableTop="@drawable/tab_news_selector" />
+            />
         <RadioButton
             style="@style/Bottom_Tab_Style"
             android:id="@+id/rb_setting"

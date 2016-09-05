@@ -1,12 +1,11 @@
 package com.project.wei.tastyrecipes.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.io.Serializable;
 
 /**
  * ITEM的对应可序化队列属性
  *  */
-  public class ChannelItem implements Parcelable{
+  /*public class ChannelItem implements Parcelable{
 
 //	private static final long serialVersionUID = -6465237897027410019L;
 
@@ -95,5 +94,70 @@ import android.os.Parcelable;
 	public String toString() {
 		return "ChannelItem [id=" + this.id + ", name=" + this.name
 				+ ", selected=" + this.selected + "]";
+	}
+}*/
+
+
+
+public class ChannelItem implements Serializable{
+	public int id;
+
+	public String name;
+
+	public int orderId;
+
+	public int selected;
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public int getSelected() {
+		return selected;
+	}
+
+	public void setSelected(int selected) {
+		this.selected = selected;
+	}
+
+	public ChannelItem() {
+	}
+
+	public ChannelItem(int id, String name, int orderId, int selected) {
+		this.id = id;
+		this.name = name;
+		this.orderId = orderId;
+		this.selected = selected;
+	}
+
+	@Override
+	public String toString() {
+		return "ChannelItem{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", orderId=" + orderId +
+				", selected=" + selected +
+				'}';
 	}
 }

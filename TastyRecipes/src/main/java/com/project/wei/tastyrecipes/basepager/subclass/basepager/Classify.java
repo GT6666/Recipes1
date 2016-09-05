@@ -2,6 +2,7 @@ package com.project.wei.tastyrecipes.basepager.subclass.basepager;
 
 import android.app.Activity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,10 +16,12 @@ import com.project.wei.tastyrecipes.activity.MainActivity;
 import com.project.wei.tastyrecipes.basepager.BaseMenuDetailPager;
 import com.project.wei.tastyrecipes.basepager.BasePager;
 import com.project.wei.tastyrecipes.basepager.subclass.basemenudetailpager.ClassifyMenuDetailPager;
+import com.project.wei.tastyrecipes.bean.ChannelItem;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.fragment.ClassifyMenuFragment;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
+import com.project.wei.tastyrecipes.utils.InputUtil;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,7 @@ public class Classify extends BasePager{
 
     private ArrayList<BaseMenuDetailPager> mMenuDetailPagers;// 菜单详情页集合
     private MillionMenus millionMenus;// 分类信息网络数据
+    private ArrayList<ChannelItem> channelitem;
 
     public Classify(Activity activity) {
         super(activity);
@@ -53,7 +57,7 @@ public class Classify extends BasePager{
         getDataFromServer();
     }
 
-    private void getDataFromServer() {
+    public void getDataFromServer() {
         HttpUtils utils = new HttpUtils();
         utils.send(HttpRequest.HttpMethod.GET, GlobalConstants.CLASSIFY,
                 new RequestCallBack<String>() {
@@ -76,7 +80,7 @@ public class Classify extends BasePager{
                 });
     }
 
-    private void processData(String result) {
+    public void processData(String result) {
         //利用Gson框架来解析json数据，一定搞懂原理
         Gson gson = new Gson();
         //把解析出来的数据存放到了NewsMenu类中
@@ -88,16 +92,22 @@ public class Classify extends BasePager{
         //给侧边栏设置数据
         classifyMenuFragment.setMenuData((ArrayList<MillionMenus.ResultBean>) millionMenus.result);
 
-        // 初始化4个菜单详情页
+        // 初始化菜单详情页
         mMenuDetailPagers = new ArrayList<BaseMenuDetailPager>();
 
-        //初始化NewsMenuDetailPager时，把mNewsData.data.get(0).children在构造函数中传递过去
-        for (int i = 0; i < millionMenus.result.size(); i++) {
-            mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity,millionMenus.result.get(i).list));
+        channelitem = InputUtil.readListFromSdCard(mActivity, "channelitem");
+        if (channelitem != null) {
+            Log.i("Classify","能不能走一下这里");
+            for (int i = 0; i < channelitem.size(); i++) {
+                mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity, millionMenus.result.get(channelitem.get(i).getId()-1).list));
+            }
+        } else {
+            //初始化ClassifyMenuDetailPager时，把millionMenus.result.get(i).list在构造函数中传递过去
+            for (int i = 0; i < millionMenus.result.size(); i++) {
+                mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity,millionMenus.result.get(i).list));
+            }
         }
-
-
-        // 将新闻菜单详情页设置为默认页面
+        // 将菜单详情页设置为默认页面
         setCurrentDetailPager(0);
     }
 
@@ -118,5 +128,11 @@ public class Classify extends BasePager{
         // 更新标题
         tv_title.setText(millionMenus.result.get(position).name);
 
+        if (channelitem != null) {
+            tv_title.setText(channelitem.get(position).getName());
+        } else {
+            // 更新标题
+            tv_title.setText(millionMenus.result.get(position).name);
+        }
     }
 }

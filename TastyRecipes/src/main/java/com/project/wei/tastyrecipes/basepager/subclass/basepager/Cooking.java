@@ -19,13 +19,13 @@ public class Cooking extends BasePager{
     @Override
     public void initData(){
         TextView textView = new TextView(mActivity);
-        textView.setText("做法");
+        textView.setText("首页");
         textView.setTextSize(50);
         textView.setTextColor(Color.RED);
         textView.setGravity(Gravity.CENTER);
         fl_content.addView(textView);
 
-        tv_title.setText("做法");//修改页面标题
+        tv_title.setText("首页");//修改页面标题
         ibtn_menu.setVisibility(View.INVISIBLE);// 隐藏菜单按钮
     }
 }
