@@ -1,6 +1,7 @@
 package com.project.wei.tastyrecipes.basepager.subclass.basepager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.project.wei.tastyrecipes.R;
+import com.project.wei.tastyrecipes.activity.RegisterAndLoginActivity;
 import com.project.wei.tastyrecipes.basepager.BasePager;
 
 /**
@@ -35,7 +37,7 @@ public class SettingPager extends BasePager{
     public SettingPager(Activity activity) {
         super(activity);
     }
-    public View initView(){
+        public View initView(){
 
         view = View.inflate(mActivity, R.layout.pager_mypager_detail, null);
         return view;
@@ -77,6 +79,13 @@ public class SettingPager extends BasePager{
             Log.i(TAG, "onClick方法执行到了");
             switch (v.getId()) {
                 case R.id.ib_mypage_headportrait://跳到第三方登录
+
+                    //使用隐式跳转
+                    Intent intent = new Intent();
+                    intent.setAction("mytastyrecipes.action.registerandloginactivity");
+                    intent.addCategory("mytastyrecipes.category.cate");
+                    mActivity.startActivity(intent);
+
                     break;
                 case R.id.ib_mypage_daynight://切换日夜模式
                     Log.i(TAG, "日夜模式开始切换");
@@ -104,7 +113,7 @@ public class SettingPager extends BasePager{
 
     class MyAdapter extends BaseAdapter {
         int[] imagesId={R.drawable.mypager_icon_mycollection,R.drawable.mypager_icon_mycollection,R.drawable.mypager_icon_mycollection};
-        String[] itemName = {"我的收藏","新闻推送","最新活动"};
+        String[] itemName = {"我的收藏","我的推送","最新活动"};
         @Override
         public int getCount() {
             return 3;
