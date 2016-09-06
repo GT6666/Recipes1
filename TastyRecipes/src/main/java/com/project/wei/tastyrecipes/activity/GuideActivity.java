@@ -24,8 +24,8 @@ import java.util.ArrayList;
 public class GuideActivity extends Activity {
 
     private ViewPager vp_guide;
-    private int[] mImageIds = new int[]{R.drawable.guide1,
-            R.drawable.guide2, R.drawable.guide3, R.drawable.guide};
+    private int[] mImageIds = new int[]{R.drawable.guide_1,
+            R.drawable.guide_2, R.drawable.guide_3, R.drawable.guide_0};
     private ArrayList<ImageView> mImageViewList;
     private LinearLayout ll_container;
     private ImageView iv_orange_point;

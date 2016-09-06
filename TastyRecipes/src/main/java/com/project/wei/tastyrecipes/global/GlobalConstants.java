@@ -6,9 +6,9 @@ package com.project.wei.tastyrecipes.global;
 public class GlobalConstants {
 
     public static final String CLASSIFY =
-            "http://apis.juhe.cn/cook/category?key=542fc86f8d544cbfc154858232e303d3";
+            "http://apis.juhe.cn/cook/category?key=9353f8ebe6e5d8b6e45d333862953fc5";
 
     public static final String CLASSIFYDETAIL =
-            "http://apis.juhe.cn/cook/index?key=542fc86f8d544cbfc154858232e303d3&cid=";
+            "http://apis.juhe.cn/cook/index?key=9353f8ebe6e5d8b6e45d333862953fc5&cid=";
 
 }
