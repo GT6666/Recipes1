@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 往SDCard写入数据权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 震动权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -76,20 +77,19 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".activity.RegisterAndLoginActivity">
             <intent-filter>
-                <action android:name="mytastyrecipes.action.registerandloginactivity" />
-
-                <category android:name="mytastyrecipes.category.cate" />
+                <action android:name="mytastyrecipes.action.registerandloginactivity"/>
+                <category android:name="mytastyrecipes.category.cate"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SettingActivity"
-            android:theme="@style/ToolBar">
-            <intent-filter>
+    </activity>
+    <activity android:name=".activity.SettingActivity"
+        android:theme="@style/ToolBar">
+        <intent-filter>
             <action android:name="mytastyrecipes.action.settingactivity" />
             <category android:name="mytastyrecipes.category.cate1" />
             <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        </intent-filter>
+    </activity>
     </application>
-
 </manifest>

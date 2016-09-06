@@ -1,1 +1,1 @@
-include ':ViewPagerIndicatorLibrary', ':TastyRecipes', ':SlidingMenuLibrary'
+include ':ViewPagerIndicatorLibrary', ':TastyRecipes', ':SlidingMenuLibrary', ':convenientbanner'
