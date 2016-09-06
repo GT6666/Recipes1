@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "F:\\AndroidworkspaceSourseCode\\Recipes\\SlidingMenuLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+        "outputFile": "F:\\Android\\Workspace\\Recipes\\SlidingMenuLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 999
                 },
                 "from": {
-                    "file": "F:\\AndroidworkspaceSourseCode\\Recipes\\SlidingMenuLibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "F:\\Android\\Workspace\\Recipes\\SlidingMenuLibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 961,
+                        "endColumn": 42,
+                        "endOffset": 999
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "F:\\project\\HealthyDiet\\SlidingMenuLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 961,
+                    "endColumn": 42,
+                    "endOffset": 999
+                },
+                "from": {
+                    "file": "F:\\project\\HealthyDiet\\SlidingMenuLibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
