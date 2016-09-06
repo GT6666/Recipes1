@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.project.wei.tastyrecipes.R;
-import com.project.wei.tastyrecipes.activity.RegisterAndLoginActivity;
 import com.project.wei.tastyrecipes.basepager.BasePager;
 
 /**

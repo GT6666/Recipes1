@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -49,6 +50,12 @@ public class ClassifyMenuFragment extends BaseFragment {
     private ArrayList<ChannelItem> channelItem;
     private ClassifyMenuAdapter classifyMenuAdapter;
 
+    int[] pics = new int[]{R.mipmap.lv1, R.mipmap.lv2, R.mipmap.lv3, R.mipmap.lv4,
+            R.mipmap.lv5, R.mipmap.lv6, R.mipmap.lv7, R.mipmap.lv8, R.mipmap.lv9, R.mipmap.lv10,
+            R.mipmap.lv11, R.mipmap.lv12, R.mipmap.lv13, R.mipmap.lv14, R.mipmap.lv15, R.mipmap.lv16,
+            R.mipmap.lv17, R.mipmap.lv18, R.mipmap.lv19, R.mipmap.lv20, R.mipmap.lv21, R.mipmap.lv22,
+            R.mipmap.lv23, R.mipmap.lv24, R.mipmap.lv25, R.mipmap.lv26, R.mipmap.lv27, R.mipmap.lv28,};
+
     @Override
     public View initView() {
         View view = View.inflate(mActivity, R.layout.fragment_leftmenu, null);
@@ -87,28 +94,21 @@ public class ClassifyMenuFragment extends BaseFragment {
         // 实现两种接口都可以实现对象集合的传递，但是，Serializable接口能实现对象集合的保存，
         // 而Parcelable接口，适合内存中传递数据，并不适合保存或者网络传输数据
         channelItem = (ArrayList<ChannelItem>) data.getSerializableExtra("channelItem");
-
-        if (channelItem != null) {
-            for (int i = 0; i < channelItem.size(); i++) {
-                String s = channelItem.get(i).getName();
-                Log.i("mmmmmmmmmmmmmmmmm", s);
-            }
-        }
     }
 
     //  每次启动APP时，都要先去文件里检查有没有存过数据，有的话就用已保存的数据
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i("zzzzzzzzzz","onCreate执行");
+        Log.i("onCreate", "onCreate执行");
 
         channelItem = InputUtil.readListFromSdCard(getActivity(), "channelitem");
         if (channelItem == null) {
-            Log.i("dqqqqqq", "读取数据失败");
+            Log.i("dq", "读取数据失败");
         } else {
-            Log.i("dqqqqqq", "读取数据成功");
+            Log.i("dq", "读取数据成功");
             for (int i = 0; i < channelItem.size(); i++) {
                 String s = channelItem.get(i).getName();
-                Log.i("ddddddddddddddddddddd", s);
+                Log.i("dq", s);
             }
 
         }
@@ -120,16 +120,12 @@ public class ClassifyMenuFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.i("zzzzzzzzzz","onResume执行");
+        Log.i("zzzzzzzzzz", "onResume执行");
         if (channelItem != null) {
             classifyMenuAdapter = new ClassifyMenuAdapter();
             if (classifyMenuAdapter != null) {
                 gv_list.setAdapter(classifyMenuAdapter);
                 classifyMenuAdapter.notifyDataSetChanged();
-
-
-                /*Classify classify = new Classify(getActivity());
-                classify.getDataFromServer();*/
 
                 // 必须在这里也加上点击事件，因为第一次进来时设置的点击事件不能在这里使用
                 gv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -156,6 +152,7 @@ public class ClassifyMenuFragment extends BaseFragment {
             // 表示第一次进来时，就是还没有设置显示多少分类的时候，把所有的分类都显示出来，同时加上点击事件
             adapter = new LeftMenuAdapter();
             gv_list.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
 
             gv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -167,6 +164,8 @@ public class ClassifyMenuFragment extends BaseFragment {
                     setCurrentDetailPager(position); // 侧边栏点击之后, 要修改FrameLayout中的内容
                 }
             });
+        } else {
+            gv_list.setAdapter(classifyMenuAdapter);
         }
     }
 
@@ -207,6 +206,7 @@ public class ClassifyMenuFragment extends BaseFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = View.inflate(mActivity, R.layout.item_leftmenu, null);
             TextView tv_menu = (TextView) view.findViewById(R.id.tv_menu);
+            LinearLayout ll_menu = (LinearLayout) view.findViewById(R.id.ll_menu);
 
             MillionMenus.ResultBean millionMenuData = getItem(position);
             String name = millionMenuData.name;
@@ -224,6 +224,7 @@ public class ClassifyMenuFragment extends BaseFragment {
                 return view;
             }*/
             tv_menu.setText(name);
+            tv_menu.setBackgroundResource(pics[position]);
             return view;
         }
     }
@@ -255,6 +256,7 @@ public class ClassifyMenuFragment extends BaseFragment {
             String name = millionMenuData.getName();
 
             tv_menu.setText(name);
+            tv_menu.setBackgroundResource(pics[position]);
             return view;
         }
     }

@@ -2,7 +2,6 @@ package com.project.wei.tastyrecipes.basepager.subclass.basepager;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -33,6 +32,7 @@ public class Classify extends BasePager{
     private ArrayList<BaseMenuDetailPager> mMenuDetailPagers;// 菜单详情页集合
     private MillionMenus millionMenus;// 分类信息网络数据
     private ArrayList<ChannelItem> channelitem;
+    private BaseMenuDetailPager pager;
 
     public Classify(Activity activity) {
         super(activity);
@@ -96,17 +96,17 @@ public class Classify extends BasePager{
         mMenuDetailPagers = new ArrayList<BaseMenuDetailPager>();
 
         channelitem = InputUtil.readListFromSdCard(mActivity, "channelitem");
-        if (channelitem != null) {
+        /*if (channelitem != null) {
             Log.i("Classify","能不能走一下这里");
             for (int i = 0; i < channelitem.size(); i++) {
                 mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity, millionMenus.result.get(channelitem.get(i).getId()-1).list));
             }
-        } else {
+        } else {*/
             //初始化ClassifyMenuDetailPager时，把millionMenus.result.get(i).list在构造函数中传递过去
             for (int i = 0; i < millionMenus.result.size(); i++) {
                 mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity,millionMenus.result.get(i).list));
             }
-        }
+//        }
         // 将菜单详情页设置为默认页面
         setCurrentDetailPager(0);
     }
@@ -114,7 +114,13 @@ public class Classify extends BasePager{
     // 设置菜单详情页
     public void setCurrentDetailPager(int position) {
         // 重新给frameLayout添加内容
-        BaseMenuDetailPager pager = mMenuDetailPagers.get(position);// 获取当前应该显示的页面
+        if (channelitem == null) {
+            // 获取当前应该显示的页面
+            pager = mMenuDetailPagers.get(position);
+        } else {
+            pager = mMenuDetailPagers.get(channelitem.get(position).getId());
+        }
+
         View view = pager.mRootView;// 当前页面的布局，返回的是填充当前页面的view,即每个页面中initView返回的view对象
 
          // 清除之前旧的布局，否则会重叠显示
