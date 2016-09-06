@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_show">
+        <item >小字体</item>
+        <item >中字体</item>
+        <item >大字体</item>
+        <item >超大字体</item>
+    </string-array>
+    <string-array name="list_show_value">
+        <item >1</item>
+        <item >2</item>
+        <item >3</item>
+        <item >4</item>
+    </string-array>
+</resources>
