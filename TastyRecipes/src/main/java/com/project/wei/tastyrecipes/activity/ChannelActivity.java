@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -30,7 +29,6 @@ import com.project.wei.tastyrecipes.bean.ChannelItem;
 import com.project.wei.tastyrecipes.bean.ChannelManage;
 import com.project.wei.tastyrecipes.dao.ChannelDao;
 import com.project.wei.tastyrecipes.db.SQLHelper;
-import com.project.wei.tastyrecipes.utils.OutputUtil;
 import com.project.wei.tastyrecipes.view.DragGrid;
 import com.project.wei.tastyrecipes.view.OtherGridView;
 
@@ -72,13 +70,6 @@ public class ChannelActivity extends Activity implements OnItemClickListener {
 			public void onClick(View v) {
 				saveChannel();
 				userChannel = getUserChannel();
-				boolean channelitem = OutputUtil.writeListIntoSDcard(getApplicationContext(), "channelitem", userChannel);
-				if (channelitem) {
-					Log.i("bccccccc","保存成功");
-				} else {
-					Log.i("bccccccc","保存失败");
-				}
-
 				Intent intent = new Intent(/*ChannelActivity.this, MainActivity.class*/);
 				intent.putExtra("channelItem", userChannel);
 				setResult(200,intent);

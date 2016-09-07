@@ -11,4 +11,7 @@ public class GlobalConstants {
     public static final String CLASSIFYDETAIL =
             "http://apis.juhe.cn/cook/index?key=9353f8ebe6e5d8b6e45d333862953fc5&cid=";
 
+
+
+
 }

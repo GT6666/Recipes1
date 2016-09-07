@@ -2,7 +2,6 @@ package com.project.wei.tastyrecipes.basepager.subclass.basemenudetailpager;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +58,26 @@ public class TabDetailPager extends BaseMenuDetailPager {
     public View initView() {
         View view = View.inflate(mActivity, R.layout.pager_tab_detail, null);
         ViewUtils.inject(this,view);
+        //////////////////////////////////////////////////////////////////////////////////
+        //  在这里，处理PullRefreshListView中的下拉刷新和上拉加载数据，它怎么才能知道要进行刷新和加载呢？
+        //  通过设置回调！！！ 就是PullRefreshListView，发送消息来，然后在这里处理
+        // 5. 前端界面设置回调
+        //  因为是在PullRefreshListView中设置的方法，所以它的对象才能调用setOnRefreshListener方法
+      /*  lv_news.setOnRefreshListener(new PullRefreshListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // 最终在这里 刷新数据
+                getDataFromServer();
+            }
+
+        });*/
+        /*setOnRefreshListener方法小括号里面就是 OnRefreshListener的一个对象listener，有了这个对象，
+        才会在PullRefreshListView中去初始化 mListener ，然后判断mListener不为null，才会在PullRefreshListView中调用mListener.onRefresh()，
+        这里的onRefresh方法才会执行！！！*/
+
+        /*举个列子，你让你朋友给你去买手机，你要告诉他：setOnRefreshListener方法，必须new出里面的对象，才相当于告诉了他，否则他还是不知道，
+        然后他给你看好一个手机，他要问一下你要不要买:onRefresh方法，这个方法里面可以带参数，就想象成手机的一些配置，
+        你最后决定要不要买：getDataFromServer，这个方法就是做具体的处理*/
 
         // 设置listview的点击事件
         lv_news.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -66,10 +85,12 @@ public class TabDetailPager extends BaseMenuDetailPager {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 ClassifyDetail.DataBean dataBean = data.get(position);
+                //                Log.i("qqqqq",data.get(position).steps.toString()+"11111111111111111111111");
                 dataBean.setSteps(data.get(position).steps);
                 Intent intent1 = new Intent(mActivity,CookingDetailsActivity.class);
                 intent1.putExtra("step", dataBean);
                 mActivity.startActivity(intent1);
+
             }
         });
 
@@ -81,10 +102,10 @@ public class TabDetailPager extends BaseMenuDetailPager {
   /*      view.setText(mTabData.title);
         Log.i("tag",mTabData.title);*/
         //先去查看缓存，有的话先加载缓存，然后再去服务器请求数据
-        String cache = CacheUtil.getCache(mUrl, mActivity);
+    /*    String cache = CacheUtil.getCache(mUrl, mActivity);
         if (!TextUtils.isEmpty(cache)) {
             processData(cache);
-        }
+        }*/
         getDataFromServer();
     }
 
@@ -116,7 +137,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
         Gson gson = new Gson();
         classifyDetail = gson.fromJson(result, ClassifyDetail.class);
 
-        // 列表填充数据
+        // 列表新闻填充数据
         data = classifyDetail.result.data;
         Log.i("fffffffffff",data.toString());
         if (data != null) {
@@ -131,7 +152,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
 
         public ListNewsAdapter() {
             bitmapUtils = new BitmapUtils(mActivity);
-            bitmapUtils.configDefaultLoadingImage(R.drawable.pic_list_item_bg);
+            //bitmapUtils.configDefaultLoadingImage(R.drawable.news_pic_default);
         }
 
         @Override

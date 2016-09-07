@@ -91,10 +91,10 @@ public class ContentFragment extends BaseFragment {
 
             }
         });
-        vp_content.setCurrentItem(1);
         // 手动加载第一页数据，因为第一个页面是默认选中的，所以第一个页面不会加载数据
         mPagers.get(0).initData();
-        setSlidingMenuEnable(false);
+        //同时，第一个页面要禁用侧边栏
+        setSlidingMenuEnable(true);
     }
 
 //  设置侧边栏是否能打开
@@ -140,7 +140,7 @@ public class ContentFragment extends BaseFragment {
         }
     }
 
-    // 获取分类页面
+    // 获取新闻中心页面
     public Classify getClassifyDetailPager() {
         Classify pager = (Classify) mPagers.get(0);
         return pager;
