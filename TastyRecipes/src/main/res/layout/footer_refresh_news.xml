@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:text="玩命加载中..."
-        android:textColor="#f00"
+        android:textColor="#ffa500"
         android:textSize="20sp"/>
 
 </LinearLayout>
