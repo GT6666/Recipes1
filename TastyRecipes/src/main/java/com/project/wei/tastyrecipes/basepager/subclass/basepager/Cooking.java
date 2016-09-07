@@ -71,12 +71,30 @@ public class Cooking extends BasePager{
     private void initViews() {
         convenientBanner = (ConvenientBanner) inflate.findViewById(R.id.convenientBanner);
         convenientBanner.startTurning(3000);
+       // onResume();
+        //onPause();
     }
+
+
+   /* protected void onResume() {
+        onResume();
+        //开始自动翻页
+        convenientBanner.startTurning(3000);
+    }
+
+    // 停止自动翻页
+
+    protected void onPause() {
+          onPause();
+        //停止翻页
+        convenientBanner.stopTurning();
+    }*/
+
 
     private void init(){
         initImageLoader();
         loadTestDatas();
-        //本地图片例子
+        //本地图片
         convenientBanner.setPages(
                 new CBViewHolderCreator<LocalImageHolderView>() {
                     @Override
@@ -85,7 +103,7 @@ public class Cooking extends BasePager{
                     }
                 }, localImages)
                 //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
-                .setPageIndicator(new int[]{R.drawable.ic_page_indicator, R.drawable.ic_page_indicator_focused})
+                //.setPageIndicator(new int[]{R.drawable.ic_page_indicator, R.drawable.ic_page_indicator_focused})
                 .setOnItemClickListener(new OnItemClickListener() {
                     String url=null;
                     @Override

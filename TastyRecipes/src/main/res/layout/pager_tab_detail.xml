@@ -8,7 +8,9 @@
         android:id="@+id/lv_news"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:cacheColorHint="#fff">
+        android:cacheColorHint="#fff"
+        >
+        <!--android:listSelector="#FF7F00"-->
     </ListView>
     <!--缓冲默认的颜色，防止滑动时可能会变黑-->
 
