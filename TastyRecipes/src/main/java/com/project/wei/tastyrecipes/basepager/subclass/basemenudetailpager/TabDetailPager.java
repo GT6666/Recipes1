@@ -31,7 +31,6 @@ import com.project.wei.tastyrecipes.domain.ClassifyDetail;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
-import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.util.List;
 
@@ -51,7 +50,6 @@ public class TabDetailPager extends BaseMenuDetailPager {
     private ListNewsAdapter listNewsAdapter;
     private ClassifyDetail classifyDetail;
     private List<ClassifyDetail.DataBean> data;
-    private Drawable placeImage;
 
     public TabDetailPager(Activity activity, MillionMenus.ResultBean.ListBean newsTabData) {
         super(activity);
@@ -63,26 +61,6 @@ public class TabDetailPager extends BaseMenuDetailPager {
     public View initView() {
         View view = View.inflate(mActivity, R.layout.pager_tab_detail, null);
         ViewUtils.inject(this,view);
-        //////////////////////////////////////////////////////////////////////////////////
-        //  在这里，处理PullRefreshListView中的下拉刷新和上拉加载数据，它怎么才能知道要进行刷新和加载呢？
-        //  通过设置回调！！！ 就是PullRefreshListView，发送消息来，然后在这里处理
-        // 5. 前端界面设置回调
-        //  因为是在PullRefreshListView中设置的方法，所以它的对象才能调用setOnRefreshListener方法
-      /*  lv_news.setOnRefreshListener(new PullRefreshListView.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // 最终在这里 刷新数据
-                getDataFromServer();
-            }
-
-        });*/
-        /*setOnRefreshListener方法小括号里面就是 OnRefreshListener的一个对象listener，有了这个对象，
-        才会在PullRefreshListView中去初始化 mListener ，然后判断mListener不为null，才会在PullRefreshListView中调用mListener.onRefresh()，
-        这里的onRefresh方法才会执行！！！*/
-
-        /*举个列子，你让你朋友给你去买手机，你要告诉他：setOnRefreshListener方法，必须new出里面的对象，才相当于告诉了他，否则他还是不知道，
-        然后他给你看好一个手机，他要问一下你要不要买:onRefresh方法，这个方法里面可以带参数，就想象成手机的一些配置，
-        你最后决定要不要买：getDataFromServer，这个方法就是做具体的处理*/
 
         // 设置listview的点击事件
         lv_news.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -157,7 +135,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
 
         public ListNewsAdapter() {
             bitmapUtils = new BitmapUtils(mActivity);
-            //bitmapUtils.configDefaultLoadingImage(R.drawable.news_pic_default);
+            bitmapUtils.configDefaultLoadingImage(R.drawable.pic_list_item_bg);
         }
 
         @Override
@@ -188,6 +166,8 @@ public class TabDetailPager extends BaseMenuDetailPager {
                  holder = (ViewHolder) convertView.getTag();
             }
             ClassifyDetail.DataBean data = getItem(position);
+            holder.textViewName.setText(data.title);
+            bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
 
             //省流量模式
             //wifi模式下正常显示

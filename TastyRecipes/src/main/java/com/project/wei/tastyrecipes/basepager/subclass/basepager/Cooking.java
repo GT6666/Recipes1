@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.ToxicBakery.viewpager.transforms.ABaseTransformer;
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
@@ -292,10 +291,10 @@ public class Cooking extends BasePager{
             View view = View.inflate(mActivity, R.layout.item_gridview, null);
 
             ImageView iv_item_grid = (ImageView) view.findViewById(R.id.iv_item_grid);
-            TextView tv_item_grid = (TextView) view.findViewById(R.id.tv_item_grid);
+//            TextView tv_item_grid = (TextView) view.findViewById(R.id.tv_item_grid);
 
             iv_item_grid.setImageResource(imageResId[position]);
-            tv_item_grid.setText(titles[position]);
+//            tv_item_grid.setText(titles[position]);
             return view;
         }
     }

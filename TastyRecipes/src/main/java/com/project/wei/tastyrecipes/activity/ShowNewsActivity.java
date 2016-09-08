@@ -1,9 +1,9 @@
 package com.project.wei.tastyrecipes.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -14,7 +14,7 @@ import com.project.wei.tastyrecipes.R;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
-public class ShowNewsActivity extends AppCompatActivity {
+public class ShowNewsActivity extends Activity {
 
     private ProgressBar pb_shownewsactivity_loading;
 
@@ -23,7 +23,6 @@ public class ShowNewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_news);
 
-        getSupportActionBar().hide();
 
         pb_shownewsactivity_loading = (ProgressBar) findViewById(R.id.pb_shownewsactivity_loading);
 
