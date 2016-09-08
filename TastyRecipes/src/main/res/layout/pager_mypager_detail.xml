@@ -7,7 +7,7 @@
     <!--为了让头像居中,添加两个空的ImageButton，并设置权重各位1-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:background="@drawable/mypage_bg1"
         android:scaleType="centerCrop"
         android:orientation="horizontal"
