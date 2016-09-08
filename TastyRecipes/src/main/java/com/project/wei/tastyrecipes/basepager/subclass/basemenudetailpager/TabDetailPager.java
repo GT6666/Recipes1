@@ -2,6 +2,9 @@ package com.project.wei.tastyrecipes.basepager.subclass.basemenudetailpager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +31,7 @@ import com.project.wei.tastyrecipes.domain.ClassifyDetail;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
+import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.util.List;
 
@@ -47,6 +51,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
     private ListNewsAdapter listNewsAdapter;
     private ClassifyDetail classifyDetail;
     private List<ClassifyDetail.DataBean> data;
+    private Drawable placeImage;
 
     public TabDetailPager(Activity activity, MillionMenus.ResultBean.ListBean newsTabData) {
         super(activity);
@@ -183,16 +188,27 @@ public class TabDetailPager extends BaseMenuDetailPager {
                  holder = (ViewHolder) convertView.getTag();
             }
             ClassifyDetail.DataBean data = getItem(position);
-            holder.textViewName.setText(data.title);
 
-            /*// 被点击了的item，进行回显
-            String readIds = SharedPrefUtil.getString(mActivity, "read_ids", "");
-            if (readIds.contains(data.id + "")) {
-                holder.textViewTitle.setTextColor(Color.GRAY);
-            } else { //  这里一定要判断 else 的情况，因为这里有item的复用，不写else时，会被复用，导致显示错误
-                holder.textViewTitle.setTextColor(Color.BLACK);
-            }*/
-            bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
+            //省流量模式
+            //wifi模式下正常显示
+            if (NetworkUtil.isWifiAvailable(mActivity.getApplicationContext())) {
+                //super.setImageURI(uri);//facebook的库
+                holder.textViewName.setText(data.title);
+                bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
+            }
+
+            SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);//这里上下文写什么
+            Log.i("zengjibin Test",defaultSharedPreferences.getBoolean("cbp_save_net",false)+"");
+            //不是省流量模式，采用原来的方法
+            if (!defaultSharedPreferences.getBoolean("cbp_save_net",false)) {
+                holder.textViewName.setText(data.title);
+                bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
+            } else {//是省流量模式，不加载数据
+                if (!NetworkUtil.isWifiAvailable(mActivity.getApplicationContext()) && NetworkUtil.isMobileNetAvailable(mActivity.getApplicationContext())) {
+                    holder.textViewName.setText(data.title);
+                    holder.imageViewPic.setImageResource(R.drawable.click_load_image);
+                }
+            }
             return convertView;
         }
     }

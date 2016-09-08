@@ -9,31 +9,36 @@
         android:layout="@layout/preference_category_widget"
         android:title="基本设置">
         <CheckBoxPreference
-            android:key="@string/save_net_mode"
+            android:key="cbp_save_net"
             android:layout="@layout/preference_item"
             android:summary="仅在Wi-Fi环境下才自动加载图片"
             android:title="省流量模式"
-            android:widgetLayout="@layout/switch_layout" />
+            android:widgetLayout="@layout/switch_layout"
+            android:defaultValue="false"/>
 
         <CheckBoxPreference
-            android:key="@string/save_net_mode"
+            android:key="cbp_push_news"
             android:layout="@layout/preference_item"
             android:summary="向客户端推送热点新闻"
             android:title="接收推送通知"
-            android:widgetLayout="@layout/switch_layout" />
+            android:widgetLayout="@layout/switch_layout"
+            android:defaultValue="true"/>
         <CheckBoxPreference
-            android:key="@string/save_net_mode"
+            android:key="cbp_day_nghit_"
             android:layout="@layout/preference_item"
             android:summary="更改模式保护视力"
             android:title="夜间模式"
-            android:widgetLayout="@layout/switch_layout" />
+            android:widgetLayout="@layout/switch_layout"
+            android:defaultValue="false"/>
         <CheckBoxPreference
-            android:key="@string/save_net_mode"
+            android:key="cbp_control_music"
             android:layout="@layout/preference_item"
             android:summary="推送时开启声音"
             android:title="推送声音"
-            android:widgetLayout="@layout/switch_layout" />
+            android:widgetLayout="@layout/switch_layout"
+            android:defaultValue="true"/>
         <Preference
+            android:key="pf_clear_cache"
             android:layout="@layout/preference_item"
             android:summary="删除已缓存的文章内容及图片"
             android:title="清空缓存" />
@@ -46,9 +51,9 @@
             android:entries="@array/list_show"
             android:entryValues="@array/list_show_value"/>
         <Preference
+            android:key="pf_check_update"
             android:layout="@layout/preference_item"
             android:title="检测更新" />
-
     </PreferenceCategory>
 <!--上面的字体大小在res/values/arrays.xml文件中定义  用list_choice来存储选择后的值-->
 
@@ -56,10 +61,12 @@
         android:layout="@layout/preference_category_widget"
         android:title="其他说明">
         <Preference
+            android:key="pf_current_version"
             android:layout="@layout/preference_item"
             android:summary="V 1.0"
             android:title="当前版本" />
         <Preference
+            android:key="pf_about_us"
             android:layout="@layout/preference_item"
             android:summary="想了解更多我们团队信息请点击"
             android:title="关于"/>
