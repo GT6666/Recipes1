@@ -89,11 +89,11 @@ public class SettingPager extends BasePager{
                 case R.id.ib_mypage_daynight://切换日夜模式
                     Log.i(TAG, "日夜模式开始切换");
                     if (isDaynight == false) {
-                        ib_mypage_daynight.setImageResource(R.drawable.moon);
+                        ib_mypage_daynight.setImageResource(R.drawable.sun);
                         tv_mypager_daynight.setText("日间模式");
                         isDaynight = true;
                     } else {
-                        ib_mypage_daynight.setImageResource(R.drawable.sun);
+                        ib_mypage_daynight.setImageResource(R.drawable.moon);
                         tv_mypager_daynight.setText("夜间模式");
                         isDaynight = false;
                     }
