@@ -2,6 +2,12 @@ package com.project.wei.tastyrecipes.basepager.subclass.basepager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,6 +30,7 @@ import com.project.wei.tastyrecipes.R;
 import com.project.wei.tastyrecipes.activity.LocalImageHolderView;
 import com.project.wei.tastyrecipes.activity.ShowNewsActivity;
 import com.project.wei.tastyrecipes.basepager.BasePager;
+import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -64,7 +71,7 @@ public class Cooking extends BasePager{
 
         gv_main.setAdapter(new MyGridViewAdapter());
         initViews();
-        init();
+        setImageURI(null);//init();
         //ibtn_menu.setVisibility(View.INVISIBLE);// 隐藏菜单按钮
     }
 
@@ -292,4 +299,36 @@ public class Cooking extends BasePager{
             return view;
         }
     }
+
+    //省流量模式
+    public void setImageURI(final Uri uri) {
+       /* this.getHierarchy()
+                .setActualImageScaleType(ScalingUtils.ScaleType.FOCUS_CROP);*/
+        //wifi 情况下，都加载图片
+        if (NetworkUtil.isWifiAvailable(mActivity.getApplicationContext())) {
+            //super.setImageURI(uri);//facebook的库
+            init();
+            return;
+        }
+        //
+        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);//这里上下文写什么
+        //不是省流量模式，采用原来的方法
+        if (!defaultSharedPreferences.getBoolean("cbp_save_net",false)) {
+            Log.i("zengjibin Test","不是省流量模式");
+            init();
+        } else {//是省流量模式，不加载数据
+            if (!NetworkUtil.isWifiAvailable(mActivity.getApplicationContext()) && NetworkUtil.isMobileNetAvailable(mActivity.getApplicationContext())) {
+                Log.i("zengjibin Test","是省流量模式");
+                Drawable placeImage;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    placeImage = mActivity.getResources().getDrawable(R.drawable.click_load_image,mActivity.getApplicationContext().getTheme());
+                } else {
+                    placeImage = mActivity.getResources().getDrawable(R.drawable.click_load_image);
+                }
+            }
+
+        }
+    }
+
+
 }
