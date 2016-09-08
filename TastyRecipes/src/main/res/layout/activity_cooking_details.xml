@@ -12,7 +12,8 @@
         android:id="@+id/lv_cooking"
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:listSelector="#00000000">
     </ListView>
 
     <RelativeLayout
