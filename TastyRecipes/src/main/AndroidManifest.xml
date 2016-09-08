@@ -47,6 +47,7 @@
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.CookingDetailsActivity" />
         <activity android:name=".activity.ChannelActivity" />
+        <activity android:name=".activity.ShowNewsActivity" />
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
