@@ -74,7 +74,7 @@ public class SettingPager extends BasePager {
         ib_mypage_daynight = (ImageButton) view.findViewById(R.id.ib_mypage_daynight);
         ib_mypage_headportrait = (ImageButton) view.findViewById(R.id.ib_mypage_headportrait);
         ib_mypage_opinion = (ImageButton) view.findViewById(R.id.ib_mypage_opinion);
-        ib_mypage_setting = (ImageButton) view.findViewById(R.id.ib_mypage_setting);
+        ib_mypage_setting = (ImageButton) view.findViewById(R.id.mypager_icon_setting);
         ib_mypage_daynight.setOnClickListener(new MyListener());
         ib_mypage_headportrait.setOnClickListener(new MyListener());
         ib_mypage_opinion.setOnClickListener(new MyListener());
@@ -102,12 +102,12 @@ public class SettingPager extends BasePager {
                 case R.id.ib_mypage_daynight://切换日夜模式
                     Log.i(TAG, "日夜模式开始切换");
                     if (isDaynight == false) {
-                        ib_mypage_daynight.setImageResource(R.drawable.mypage_icon_daynight);
+                        ib_mypage_daynight.setImageResource(R.drawable.moon);
                         tv_mypager_daynight.setText("日间模式");
                         isDaynight = true;
                         ChangeToNight();
                     } else {
-                        ib_mypage_daynight.setImageResource(R.drawable.mypager_icon_sun);
+                        ib_mypage_daynight.setImageResource(R.drawable.sun);
                         tv_mypager_daynight.setText("夜间模式");
                         isDaynight = false;
                         ChangeToDay();
@@ -115,7 +115,7 @@ public class SettingPager extends BasePager {
                     break;
                 case R.id.ib_mypage_opinion://跳转到意见反馈
                     break;
-                case R.id.ib_mypage_setting://跳转到设置
+                case R.id.mypager_icon_setting://跳转到设置
                     Intent intentSetting = new Intent();
                     intentSetting.setAction("mytastyrecipes.action.settingactivity");
                     intentSetting.addCategory("mytastyrecipes.category.cate1");
@@ -130,9 +130,8 @@ public class SettingPager extends BasePager {
 
 
     class MyAdapter extends BaseAdapter {
-        int[] imagesId = {R.drawable.mypager_icon_mycollection, R.drawable.mypager_icon_mycollection, R.drawable.mypager_icon_mycollection};
-        String[] itemName = {"我的收藏", "我的推送", "最新活动"};
-
+        int[] imagesId={R.drawable.shoucang,R.drawable.tuisong,R.drawable.guanggao};
+        String[] itemName = {"我的收藏","我的推送","最新活动"};
         @Override
         public int getCount() {
             return 3;
@@ -158,7 +157,7 @@ public class SettingPager extends BasePager {
 
             iv_listitemnews_icon.setImageResource(imagesId[position]);
             tv_listitemnews_title.setText(itemName[position]);
-
+            tv_listitemnews_title.setTextSize(18);
 
             //给ListView设置一个背景选择器
             if (view == null) {
@@ -168,7 +167,6 @@ public class SettingPager extends BasePager {
             return view;
         }
     }
-
     /**
      * 条目点击事件
      */

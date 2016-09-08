@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/title_red_bg"
+            android:background="@drawable/title_orange_bg"
             android:id="@+id/tv_pageview_pageTitle"/>
         <ImageButton
             android:layout_width="wrap_content"
