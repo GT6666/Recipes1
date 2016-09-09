@@ -2,12 +2,6 @@ package com.project.wei.tastyrecipes.basepager.subclass.basepager;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,7 +23,6 @@ import com.project.wei.tastyrecipes.R;
 import com.project.wei.tastyrecipes.activity.LocalImageHolderView;
 import com.project.wei.tastyrecipes.activity.ShowNewsActivity;
 import com.project.wei.tastyrecipes.basepager.BasePager;
-import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -299,10 +292,10 @@ public class Cooking extends BasePager{
         }
     }
 
-    //省流量模式
+    /*//省流量模式
     public void setImageURI(final Uri uri) {
-       /* this.getHierarchy()
-                .setActualImageScaleType(ScalingUtils.ScaleType.FOCUS_CROP);*/
+       *//* this.getHierarchy()
+                .setActualImageScaleType(ScalingUtils.ScaleType.FOCUS_CROP);*//*
         //wifi 情况下，都加载图片
         if (NetworkUtil.isWifiAvailable(mActivity.getApplicationContext())) {
             //super.setImageURI(uri);//facebook的库
@@ -327,7 +320,7 @@ public class Cooking extends BasePager{
             }
 
         }
-    }
+    }*/
 
 
 }

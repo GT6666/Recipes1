@@ -91,7 +91,7 @@ public class ContentFragment extends BaseFragment {
 
             }
         });
-        vp_content.setCurrentItem(1);
+        vp_content.setCurrentItem(0);
         // 手动加载第一页数据，因为第一个页面是默认选中的，所以第一个页面不会加载数据
         mPagers.get(0).initData();
         setSlidingMenuEnable(false);
