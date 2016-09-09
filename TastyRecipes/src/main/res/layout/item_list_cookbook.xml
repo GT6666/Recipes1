@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:text="大裂式对"
+        android:text="即佛位附近邻居"
         android:drawableLeft="@drawable/sanjiao"
         android:textSize="21dp"
         android:textColor="#000"

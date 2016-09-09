@@ -44,9 +44,9 @@ public class ContentFragment extends BaseFragment {
         mPagers.add(new SettingPager(mActivity));
 
         vp_content.setAdapter(new ViewPagerAdapter());
-//      设置每个RadioButton选择后的事件处理，跳转到相应的pager
+        //      设置每个RadioButton选择后的事件处理，跳转到相应的pager
         radioGruopListener();
-//      设置在某些页面侧边栏不能滑出来
+        //      设置在某些页面侧边栏不能滑出来
         pagerChangeListener();
     }
 
@@ -91,13 +91,13 @@ public class ContentFragment extends BaseFragment {
 
             }
         });
+        vp_content.setCurrentItem(1);
         // 手动加载第一页数据，因为第一个页面是默认选中的，所以第一个页面不会加载数据
         mPagers.get(0).initData();
-        //同时，第一个页面要禁用侧边栏
-        setSlidingMenuEnable(true);
+        setSlidingMenuEnable(false);
     }
 
-//  设置侧边栏是否能打开
+    //  设置侧边栏是否能打开
     private void setSlidingMenuEnable(boolean enable) {
         //获取侧边栏对象
         MainActivity mainActivity = (MainActivity) mActivity;
@@ -128,7 +128,7 @@ public class ContentFragment extends BaseFragment {
             //在这里调用每个viewpager的这个方法，初始化数据
             //viewpager会默认加载下一个页面的数据,为了节省流量和性能,
             // 不要在此处调用初始化数据的方法,而是监听每个viewpager，当它被选择后再初始化数据
-//            basePager.initData();
+            //            basePager.initData();
 
             View view = basePager.mRootView;//获取当前页面对象的布局
             container.addView(view);
@@ -140,7 +140,7 @@ public class ContentFragment extends BaseFragment {
         }
     }
 
-    // 获取新闻中心页面
+    // 获取分类页面
     public Classify getClassifyDetailPager() {
         Classify pager = (Classify) mPagers.get(0);
         return pager;

@@ -13,6 +13,7 @@ public class ClassifyDetail {
     public String resultcode;
     public String reason;
 
+
     public ResultBean result;
     public int error_code;
 

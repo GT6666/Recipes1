@@ -7,7 +7,7 @@
     <!--为了让头像居中,添加两个空的ImageButton，并设置权重各位1-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:background="@drawable/mypage_bg1"
         android:scaleType="centerCrop"
         android:orientation="horizontal"
@@ -22,8 +22,8 @@
         <!--这个ImageButton用来实现头像跳转登录-->
         <ImageButton
             android:id="@+id/ib_mypage_headportrait"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@null"
             android:scaleType="fitCenter"
             android:layout_gravity="center_vertical"
@@ -73,7 +73,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sun"
+                android:src="@drawable/moon"
                 />
             <TextView
                 android:id="@+id/tv_mypager_daynight"
