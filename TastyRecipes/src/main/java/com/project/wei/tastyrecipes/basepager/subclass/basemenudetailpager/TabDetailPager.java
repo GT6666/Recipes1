@@ -3,7 +3,6 @@ package com.project.wei.tastyrecipes.basepager.subclass.basemenudetailpager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +30,7 @@ import com.project.wei.tastyrecipes.domain.ClassifyDetail;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
+import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.util.List;
 
