@@ -1,8 +1,12 @@
 package com.project.wei.tastyrecipes.activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Window;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -11,6 +15,7 @@ import com.project.wei.tastyrecipes.R;
 import com.project.wei.tastyrecipes.bean.ChannelItem;
 import com.project.wei.tastyrecipes.fragment.ClassifyMenuFragment;
 import com.project.wei.tastyrecipes.fragment.ContentFragment;
+import com.project.wei.tastyrecipes.service.MyMaintainService;
 
 import java.util.ArrayList;
 
@@ -37,7 +42,7 @@ public class MainActivity extends SlidingFragmentActivity {
     private static final String TAG_LEFTMENU = "TAG_LEFTMENU";
     private static final String TAG_CONTENT = "TAG_CONTENT";
     private ArrayList<ChannelItem> channelItem;
-
+    private static final String TAG = "MainActivity";
     /* 使用slidingmenu
          1. 引入slidingmenu库
          2. 继承SlidingFragmentActivity
@@ -56,6 +61,22 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setBehindOffset(0);
         //初始化fragment
         initFragment();
+        //一进来开启设置里的我的推送开关
+        //以下根据设置里的是否开启关闭我的推荐开关
+        //默认为开启开关
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean cbp_push_news = sp.getBoolean("cbp_push_news",true);
+        //开关开启，服务开启
+        if(cbp_push_news) {
+            Log.i(TAG,"开关开启，服务开启");
+            Intent it = new Intent(this, MyMaintainService.class);
+            startService(it);
+
+        }else{//开关关闭，服务关闭
+            Log.i(TAG,"开关关闭，服务关闭");
+            Intent in = new Intent(this,MyMaintainService.class);
+            stopService(in);
+        }
     }
 
     public void initFragment() {
@@ -83,5 +104,4 @@ public class MainActivity extends SlidingFragmentActivity {
         ContentFragment ContentFragment = (ContentFragment) fragmentManager.findFragmentByTag(TAG_CONTENT);
         return ContentFragment;
     }
-
 }
