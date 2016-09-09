@@ -30,7 +30,6 @@ import com.project.wei.tastyrecipes.domain.ClassifyDetail;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
-import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.util.List;
 

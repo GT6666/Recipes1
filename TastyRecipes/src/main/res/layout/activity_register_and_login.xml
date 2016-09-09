@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
     tools:context="com.project.wei.tastyrecipes.activity.RegisterAndLoginActivity">
     <ScrollView
         android:layout_width="wrap_content"
@@ -22,7 +23,7 @@
                 android:background="@drawable/other_login"
                 android:gravity="center"
                 android:text="吃货本事注册"
-                android:textColor="#3399ff"
+                android:textColor="#ff6400"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
             <TextView
@@ -35,13 +36,15 @@
                 android:gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="吃货本事登录"
-                android:textColor="#3399ff"
+                android:textColor="#ff6400"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="第三方登录"
+                android:textStyle="bold"
+                android:textColor="#000"
                 android:layout_marginTop="30dp"
                 android:textSize="20dp"/>
             <TextView

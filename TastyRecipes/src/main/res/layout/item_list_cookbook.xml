@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:scaleType="fitXY"
-        android:background="#000"
+        android:background="#fff"
         android:padding="1dp"
         android:src="@drawable/image_demo"/>
     <TextView
@@ -19,7 +19,7 @@
         android:background="@null"
         android:text="即佛位附近邻居"
         android:drawableLeft="@drawable/sanjiao"
-        android:textSize="21sp"
+        android:textSize="21dp"
         android:textColor="#000"
         android:ellipsize="end"
         android:layout_below="@id/iv_foodpic"

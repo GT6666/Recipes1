@@ -33,6 +33,14 @@
             android:ellipsize="end"
             android:text="测试"
             />
+        <ImageView
+            android:padding="1dp"
+            android:layout_marginLeft="200dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/news_cate_arr2"
+            />
     </LinearLayout>
 
 

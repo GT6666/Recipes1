@@ -39,8 +39,8 @@ public class ContentFragment extends BaseFragment {
     public void initData() {
         mPagers = new ArrayList<>();
         //添加三个标签页
-        mPagers.add(new Classify(mActivity));
         mPagers.add(new Cooking(mActivity));
+        mPagers.add(new Classify(mActivity));
         mPagers.add(new SettingPager(mActivity));
 
         vp_content.setAdapter(new ViewPagerAdapter());
@@ -55,10 +55,10 @@ public class ContentFragment extends BaseFragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.rb_classify:
+                    case R.id.rb_cooking:
                         vp_content.setCurrentItem(0,false);//参数二：是否具有滑动动画
                         break;
-                    case R.id.rb_cooking:
+                    case R.id.rb_classify:
                         vp_content.setCurrentItem(1,false);
                         break;
                     case R.id.rb_setting:
@@ -79,7 +79,7 @@ public class ContentFragment extends BaseFragment {
                 BasePager pager = mPagers.get(position);
                 pager.initData();//在这里初始化数据
 
-                if ( position == 0) {
+                if ( position == 1) {
                     setSlidingMenuEnable(true);
                 } else {
                     setSlidingMenuEnable(false);
@@ -91,7 +91,7 @@ public class ContentFragment extends BaseFragment {
 
             }
         });
-        vp_content.setCurrentItem(1);
+        vp_content.setCurrentItem(0);
         // 手动加载第一页数据，因为第一个页面是默认选中的，所以第一个页面不会加载数据
         mPagers.get(0).initData();
         setSlidingMenuEnable(false);
