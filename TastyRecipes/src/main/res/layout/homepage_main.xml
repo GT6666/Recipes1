@@ -4,13 +4,37 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="吃货本事"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="#fff"
+        android:background="#FFA500"
+        />
     <com.bigkoo.convenientbanner.ConvenientBanner
         android:id="@+id/convenientBanner"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:canLoop="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="商家推荐"
+        android:textSize="18dp"
+        android:textColor="#000"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:background="#fff"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="1dp"
+        android:background="#000"
+        />
     <GridView
         android:paddingTop="10dp"
         android:layout_width="match_parent"
