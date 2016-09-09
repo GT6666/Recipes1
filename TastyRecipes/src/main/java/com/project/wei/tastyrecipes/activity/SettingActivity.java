@@ -22,7 +22,7 @@ public class SettingActivity extends AppCompatActivity {
 
     }
     private void initToolbar() {
-        mToolbar.setTitle("设置");//这里改动
+        mToolbar.setTitle("设置");//这里可以设置代码
         mToolbar.setTitleTextColor(getResources().getColor(R.color.mypage_item_true));//文字颜色设置
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();

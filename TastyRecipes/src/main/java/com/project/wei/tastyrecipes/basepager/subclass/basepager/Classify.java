@@ -110,6 +110,7 @@ public class Classify extends BasePager {
     // 设置菜单详情页
     public void setCurrentDetailPager(int position) {
 
+
         // 获取存放在文件里的数据
         channelitem = InputUtil.readListFromSdCard(mActivity, "channelitem");
 
