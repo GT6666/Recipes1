@@ -109,15 +109,16 @@ public class Classify extends BasePager {
 
     // 设置菜单详情页
     public void setCurrentDetailPager(int position) {
+
         // 获取存放在文件里的数据
         channelitem = InputUtil.readListFromSdCard(mActivity, "channelitem");
-        for (int i = 0; i < channelitem.size(); i++) {
-            // position 是顺序排列的，但是每个channelitem 的 id 是不变的，所以必须用id 而不是positon
-            mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity, millionMenus.result.get(channelitem.get(i).getId() - 1).list));
-        }
 
         // 重新给frameLayout添加内容
         if (channelitem != null) {
+            for (int i = 0; i < channelitem.size(); i++) {
+                // position 是顺序排列的，但是每个channelitem 的 id 是不变的，所以必须用id 而不是positon
+                mMenuDetailPagers.add(new ClassifyMenuDetailPager(mActivity, millionMenus.result.get(channelitem.get(i).getId() - 1).list));
+            }
             pager = mMenuDetailPagers.get(channelitem.get(position).getId() - 1);
         } else {
             pager = mMenuDetailPagers.get(position);
