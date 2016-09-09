@@ -29,7 +29,7 @@ public class RegisterAndLoginActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_and_login);
-        getSupportActionBar().hide();
+ //       getSupportActionBar().hide();
         //初始化ShareSDK
         ShareSDK.initSDK(this);
         tv_RegisterAndLoginActivity_register = (TextView) findViewById(R.id.tv_RegisterAndLoginActivity_register);

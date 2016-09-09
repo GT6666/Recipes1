@@ -139,7 +139,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
 
         public ListNewsAdapter() {
             bitmapUtils = new BitmapUtils(mActivity);
-            bitmapUtils.configDefaultLoadingImage(R.drawable.pic_list_item_bg);
+            bitmapUtils.configDefaultLoadingImage(R.drawable.click_load_image);
         }
 
         @Override
@@ -174,13 +174,11 @@ public class TabDetailPager extends BaseMenuDetailPager {
             //省流量模式
             //wifi模式下正常显示
             if (NetworkUtil.isWifiAvailable(mActivity.getApplicationContext())) {
-                //super.setImageURI(uri);//facebook的库
                 holder.textViewName.setText(data.title);
                 bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
             }
 
             SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
-            //Log.i("zengjibin Test",defaultSharedPreferences.getBoolean("cbp_save_net",false)+"");
             //判断是否是小米和魅族手机，如果是那么就正常加载，因为系统判断是否是wifi状态失效。还没找到解决办法
             if(FlymeUtils.isFlyme()| MIUIUtils.isMIUI()){
                 holder.textViewName.setText(data.title);

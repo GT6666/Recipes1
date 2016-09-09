@@ -114,6 +114,10 @@ public class SettingPager extends BasePager {
                     }
                     break;
                 case R.id.ib_mypage_opinion://跳转到意见反馈
+                    Intent intentOpinion= new Intent();
+                    intentOpinion.setAction("mytastyrecipes.action.opinionactivity");
+                    intentOpinion.addCategory("mytastyrecipes.category.cate1");
+                    mActivity.startActivity(intentOpinion);
                     break;
                 case R.id.mypager_icon_setting://跳转到设置
                     Intent intentSetting = new Intent();

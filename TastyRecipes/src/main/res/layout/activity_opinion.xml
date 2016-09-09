@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:title="意见反馈"
+        android:background="@color/colorAccent"
+        >
+        <ImageButton
+            android:id="@+id/ib_left_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_left_back"
+            android:background="@color/colorAccent"/>
+        <TextView
+            android:textSize="25sp"
+            android:paddingLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="意见反馈"
+            android:textColor="#fff"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="        亲爱的用户,在使用中的任何问题可以发送给我们，我们的成长离不开您的支持"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_gravity="bottom"
+            android:id="@+id/et_edit_opinion"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="这里输入您的意见,感谢您的建议"
+            android:singleLine="true"
+            />
+        <Button
+            android:id="@+id/btn_send_opinion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送"
+            android:background="@color/colorAccent"/>
+    </LinearLayout>
+
+</LinearLayout>
