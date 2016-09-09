@@ -3,7 +3,6 @@ package com.project.wei.tastyrecipes.basepager.subclass.basemenudetailpager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -31,8 +30,6 @@ import com.project.wei.tastyrecipes.domain.ClassifyDetail;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
-import com.project.wei.tastyrecipes.utils.FlymeUtils;
-import com.project.wei.tastyrecipes.utils.MIUIUtils;
 import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.util.List;
@@ -53,7 +50,6 @@ public class TabDetailPager extends BaseMenuDetailPager {
     private ListNewsAdapter listNewsAdapter;
     private ClassifyDetail classifyDetail;
     private List<ClassifyDetail.DataBean> data;
-    private Drawable placeImage;
 
     public TabDetailPager(Activity activity, MillionMenus.ResultBean.ListBean newsTabData) {
         super(activity);
@@ -121,16 +117,20 @@ public class TabDetailPager extends BaseMenuDetailPager {
 
 
     private void processData(String result) {
-        Gson gson = new Gson();
-        classifyDetail = gson.fromJson(result, ClassifyDetail.class);
+        if (result == null) {
+            Toast.makeText(mActivity,"Appkey 已用完！",Toast.LENGTH_LONG);
+        }else {
+            Gson gson = new Gson();
+            classifyDetail = gson.fromJson(result, ClassifyDetail.class);
 
-        // 列表新闻填充数据
-        data = classifyDetail.result.data;
-        Log.i("fffffffffff",data.toString());
-        if (data != null) {
+            // 列表新闻填充数据
+            data = classifyDetail.result.data;
+            Log.i("fffffffffff", data.toString());
+            if (data != null) {
                 listNewsAdapter = new ListNewsAdapter();
                 lv_news.setAdapter(listNewsAdapter);
             }
+        }
     }
 
     class ListNewsAdapter extends BaseAdapter {
@@ -170,6 +170,8 @@ public class TabDetailPager extends BaseMenuDetailPager {
                  holder = (ViewHolder) convertView.getTag();
             }
             ClassifyDetail.DataBean data = getItem(position);
+            holder.textViewName.setText(data.title);
+            bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
 
             //省流量模式
             //wifi模式下正常显示
@@ -179,25 +181,18 @@ public class TabDetailPager extends BaseMenuDetailPager {
                 bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
             }
 
-            SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
-            //Log.i("zengjibin Test",defaultSharedPreferences.getBoolean("cbp_save_net",false)+"");
-            //判断是否是小米和魅族手机，如果是那么就正常加载，因为系统判断是否是wifi状态失效。还没找到解决办法
-            if(FlymeUtils.isFlyme()| MIUIUtils.isMIUI()){
+            SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);//这里上下文写什么
+            Log.i("zengjibin Test",defaultSharedPreferences.getBoolean("cbp_save_net",false)+"");
+            //不是省流量模式，采用原来的方法
+            if (!defaultSharedPreferences.getBoolean("cbp_save_net",false)) {
                 holder.textViewName.setText(data.title);
                 bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
-            }else{
-                //不是省流量模式，采用原来的方法
-                if (!defaultSharedPreferences.getBoolean("cbp_save_net",false)) {
+            } else {//是省流量模式，不加载数据
+                if (!NetworkUtil.isWifiAvailable(mActivity.getApplicationContext()) && NetworkUtil.isMobileNetAvailable(mActivity.getApplicationContext())) {
                     holder.textViewName.setText(data.title);
-                    bitmapUtils.display(holder.imageViewPic,data.albums.get(0));
-                } else {//是省流量模式，不加载数据
-                    if (!NetworkUtil.isWifiAvailable(mActivity.getApplicationContext()) && NetworkUtil.isMobileNetAvailable(mActivity.getApplicationContext())) {
-                        holder.textViewName.setText(data.title);
-                        holder.imageViewPic.setImageResource(R.drawable.click_load_image);
-                    }
+                    holder.imageViewPic.setImageResource(R.drawable.click_load_image);
                 }
             }
-
             return convertView;
         }
     }

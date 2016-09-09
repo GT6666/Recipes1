@@ -85,9 +85,9 @@ public class ChannelActivity extends Activity implements OnItemClickListener {
 				intent.putExtra("channelItem", userChannel);
 				setResult(200,intent);
 
-				/*for (int i = 0; i < userChannel.size(); i++) {
+				for (int i = 0; i < userChannel.size(); i++) {
 					Log.i("channelactivity", userChannel.get(i).toString());
-				}*/
+				}
 				finish();
 			}
 		});

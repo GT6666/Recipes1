@@ -180,7 +180,10 @@ public class ClassifyMenuFragment extends BaseFragment {
         ContentFragment fragment = mainActivity.getContentFragment();
 
         Classify Classify = fragment.getClassifyDetailPager();
-        Classify.setCurrentDetailPager(position);
+
+            Classify.setCurrentDetailPager(position);
+
+
     }
 
     class LeftMenuAdapter extends BaseAdapter {
