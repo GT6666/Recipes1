@@ -6,7 +6,7 @@
     >
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:title="意见反馈"
         android:background="@color/colorAccent"
         >

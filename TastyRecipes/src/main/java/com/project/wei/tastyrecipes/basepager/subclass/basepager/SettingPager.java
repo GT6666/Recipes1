@@ -105,12 +105,12 @@ public class SettingPager extends BasePager {
                         ib_mypage_daynight.setImageResource(R.drawable.sun);
                         tv_mypager_daynight.setText("日间模式");
                         isDaynight = true;
-                        ChangeToNight();
+                        //ChangeToNight();//准备两套风格样式进行切换，或者使用23.2的SDK自带夜间模式封装
                     } else {
                         ib_mypage_daynight.setImageResource(R.drawable.moon);
                         tv_mypager_daynight.setText("夜间模式");
                         isDaynight = false;
-                        ChangeToDay();
+                       // ChangeToDay();
                     }
                     break;
                 case R.id.ib_mypage_opinion://跳转到意见反馈

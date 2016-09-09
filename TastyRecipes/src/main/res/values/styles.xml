@@ -14,9 +14,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
-
+<!-- <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>-->
     <!-- <RadioButton
             android:id="@+id/rb_home"
             android:layout_width="0dp"
