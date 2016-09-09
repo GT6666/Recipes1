@@ -116,6 +116,7 @@ public class DragGrid extends GridView {
 		return super.onInterceptTouchEvent(ev);
 	}
 
+
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub
@@ -153,7 +154,7 @@ public class DragGrid extends GridView {
 		}
 		return super.onTouchEvent(ev);
 	}
-	
+
 	/** 在拖动的情况 */
 	private void onDrag(int x, int y , int rawx , int rawy) {
 		if (dragImageView != null) {

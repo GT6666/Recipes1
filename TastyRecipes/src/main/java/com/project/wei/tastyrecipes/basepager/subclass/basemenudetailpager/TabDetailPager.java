@@ -30,6 +30,7 @@ import com.project.wei.tastyrecipes.domain.ClassifyDetail;
 import com.project.wei.tastyrecipes.domain.MillionMenus;
 import com.project.wei.tastyrecipes.global.GlobalConstants;
 import com.project.wei.tastyrecipes.utils.CacheUtil;
+import com.project.wei.tastyrecipes.utils.NetworkUtil;
 
 import java.util.List;
 
@@ -116,16 +117,20 @@ public class TabDetailPager extends BaseMenuDetailPager {
 
 
     private void processData(String result) {
-        Gson gson = new Gson();
-        classifyDetail = gson.fromJson(result, ClassifyDetail.class);
+        if (result == null) {
+            Toast.makeText(mActivity,"Appkey 已用完！",Toast.LENGTH_LONG);
+        }else {
+            Gson gson = new Gson();
+            classifyDetail = gson.fromJson(result, ClassifyDetail.class);
 
-        // 列表新闻填充数据
-        data = classifyDetail.result.data;
-        Log.i("fffffffffff",data.toString());
-        if (data != null) {
+            // 列表新闻填充数据
+            data = classifyDetail.result.data;
+            Log.i("fffffffffff", data.toString());
+            if (data != null) {
                 listNewsAdapter = new ListNewsAdapter();
                 lv_news.setAdapter(listNewsAdapter);
             }
+        }
     }
 
     class ListNewsAdapter extends BaseAdapter {
