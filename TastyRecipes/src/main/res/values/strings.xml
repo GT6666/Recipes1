@@ -28,4 +28,6 @@
     <string name="review_history">浏览历史</string>
     <!-- list 到了最底部 没有新数据了-->
     <string name="save_net_mode">save_net_mode</string>
+
+
 </resources>
