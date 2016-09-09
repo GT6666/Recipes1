@@ -16,6 +16,7 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         mToolbar =(Toolbar) findViewById(R.id.toolbar_preference);
+        setSupportActionBar(mToolbar);
         initToolbar();
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new SettingFragment()).commit();
 
