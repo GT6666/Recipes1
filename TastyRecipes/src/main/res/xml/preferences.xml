@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout="@layout/preference_item"
-    android:title="@string/title_activity_setting">
+    android:title="@string/title_activity_setting"
+    >
 
     <PreferenceCategory
         android:layout="@layout/preference_category_widget"
-        android:title="基本设置">
+        android:title="基本设置"
+        >
         <CheckBoxPreference
             android:key="cbp_save_net"
             android:layout="@layout/preference_item"
